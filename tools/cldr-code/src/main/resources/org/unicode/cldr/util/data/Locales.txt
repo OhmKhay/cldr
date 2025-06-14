@@ -660,6 +660,8 @@ Cherokee	;	chr	;	modern	;	Cherokee
 
 Choctaw	;	cho	;	modern	;	Choctaw
 
+cihan_uni	;	ckb ; 	modern
+
 Gnome	;	lt	;	modern	;	Lithuanian
 Gnome	;	ar	;	modern	;	Arabic
 Gnome ; fa ; modern ;
@@ -916,6 +918,7 @@ Meta	;	vi	;	modern	;	Vietnamese
 Meta	;	zh	;	modern	;	Simplified Chinese
 Meta	;	zh_Hant	;	modern	;	Traditional Chinese
 Meta	;	zh_Hant_HK	;	modern	;	Traditional Chinese (Hong Kong)
+Meta	; *	; moderate ; All Others, provisionally
 
 Mozilla	;	mul	;	modern
 # ^no votes in 30…40 for this org
@@ -930,8 +933,12 @@ shan_iit ; shn ; modern
 
 sicilian_cademia ; scn ; modern
 
+sitelen_pona ; tok ; modern
+
 sunuwar_ws ; suz ; modern
 sunuwar_ws ; suz_Sunu ; modern
+
+unibz ; lld ; modern ; Ladin
 
 venetian ; vec ; modern
 
