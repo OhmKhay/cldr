@@ -763,7 +763,6 @@ function getSpecial(str) {
     oldvotes: cldrOldVotes,
     recent_activity: cldrRecentActivity,
     retry: cldrRetry,
-    vetting_participation: cldrVettingParticipation,
   };
   if (str in specials) {
     return specials[str];
@@ -1194,6 +1193,7 @@ export {
   handleCoverageChanged,
   insertLocaleSpecialNote,
   linkToLocale,
+  localeMapReady,
   localeSpecialNote,
   myLoad,
   onLocaleMapReady,

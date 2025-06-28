@@ -399,10 +399,16 @@ function getSingleRowUrl(theRow) {
 
 function getPageUrl(curLocale, curPage, curId) {
   let p = null;
-  if (curId && !curPage) {
+  if (curId) {
+    if (!curPage) {
+      curPage = "auto";
+    }
+    // xpstrid is normally only used on the server if page is "auto". However, sometimes a row is bookmarked
+    // and the page name changes, but xpstrid is still valid, and the bookmark can still be used. In that
+    // case the server will treat the obsolete page name the same as "auto", and use xpstrid to determine
+    // the correct current page name.
     p = new URLSearchParams();
     p.append("xpstrid", curId);
-    curPage = "auto";
   }
   const api = "voting/" + curLocale + "/page/" + curPage;
   return cldrAjax.makeApiUrl(api, p);
@@ -956,12 +962,10 @@ function addVitem(td, tr, theRow, item, newButton) {
   if (
     newButton &&
     theRow.voteVhash == item.valueHash &&
-    theRow.items[theRow.voteVhash].votes &&
-    theRow.items[theRow.voteVhash].votes[surveyUser.id] &&
-    theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes
+    theRow.items[theRow.voteVhash]?.votes[surveyUser.id]?.voteDetails?.override
   ) {
     const overrideTag = cldrDom.createChunk(
-      theRow.items[theRow.voteVhash].votes[surveyUser.id].overridedVotes,
+      theRow.items[theRow.voteVhash].votes[surveyUser.id].voteDetails.override,
       "span",
       "i-override"
     );
