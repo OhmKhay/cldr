@@ -67,7 +67,7 @@ public class UserRegistry {
             loc = "fr"; // fallback
             CookieSession.checkForExpiredSessions();
             CookieSession mySession = CookieSession.retrieve(sess);
-            if (mySession.user != null) {
+            if (mySession != null && mySession.user != null) {
                 CLDRLocale exLoc = mySession.user.exampleLocale();
                 if (exLoc != null) {
                     loc = exLoc.getBaseName();
@@ -527,6 +527,7 @@ public class UserRegistry {
                     .put("userCanUseVettingParticipation", userCanUseVettingParticipation(this))
                     .put("userIsAdmin", userIsAdmin(this))
                     .put("userIsManager", getLevel().canManageSomeUsers())
+                    .put("userCanVoteForMissing", getLevel().canVoteForMissing())
                     .put("userIsTC", userIsTCOrStronger(this))
                     // Caution: userIsVetter really means user is Vetter or Manager, but not TC or
                     // Admin. It should be renamed to avoid confusion.
